@@ -1,0 +1,139 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   @default("patient")
+  createdAt    DateTime @default(now())
+}
+
+model Doctor {
+  id             String   @id @default(cuid())
+  name           String
+  specialization String
+  email          String   @unique
+  passwordHash   String?
+  phone          String
+  experience     String
+  status         String   @default("Active")
+  image          String   @default("/avatars/default.png")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  appointments  Appointment[]
+  availability  AvailabilitySlot[]
+  prescriptions Prescription[]
+}
+
+model Patient {
+  id            String         @id @default(cuid())
+  name          String
+  email         String         @unique
+  phone         String
+  status        String         @default("active")
+  condition     String         @default("Not specified")
+  createdAt     DateTime       @default(now())
+  age           Int?
+  gender        String?
+  patientId     String?        @unique
+  department    String?
+  appointments  Appointment[]
+  prescriptions Prescription[]
+}
+
+model DashboardStat {
+  id            String   @id @default(cuid())
+  totalRevenue  Float
+  totalPatients Int
+  activeDoctors Int
+  createdAt     DateTime @default(now())
+}
+
+model Alert {
+  id        String   @id @default(cuid())
+  message   String
+  type      String // "warning", "critical", "info"
+  createdAt DateTime @default(now())
+}
+
+model TrafficData {
+  id           String   @id @default(cuid())
+  day          String // Mon, Tue, etc.
+  patientCount Int
+  createdAt    DateTime @default(now())
+}
+
+model Appointment {
+  id          String   @id @default(cuid())
+  patientName String
+  type        String // Cardiology, Dental, etc.
+  time        String
+  status      String // "upcoming", "active"
+  createdAt   DateTime @default(now())
+  price       Float
+
+  // --- Doctor portal fields (added without breaking existing admin logic) ---
+  timeSlot DateTime?
+  notes    String?
+
+  doctorId String?
+  doctor   Doctor? @relation(fields: [doctorId], references: [id], onDelete: SetNull)
+
+  patientId String?
+  patient   Patient? @relation(fields: [patientId], references: [id], onDelete: SetNull)
+
+  prescriptions Prescription[]
+
+  @@index([doctorId])
+  @@index([patientId])
+}
+
+model Prescription {
+  id            String      @id @default(cuid())
+  appointmentId String
+  appointment   Appointment @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+
+  doctorId String
+  doctor   Doctor @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  patientId String?
+  patient   Patient? @relation(fields: [patientId], references: [id], onDelete: SetNull)
+
+  patientName String
+  medicines   Json
+  notes       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([doctorId])
+  @@index([patientId])
+  @@index([appointmentId])
+}
+
+model AvailabilitySlot {
+  id       String @id @default(cuid())
+  doctorId String
+  doctor   Doctor @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  // Stored as strings to match frontend payload/types exactly
+  date      String // "YYYY-MM-DD"
+  startTime String // "HH:MM"
+  endTime   String // "HH:MM"
+
+  // Whether the slot is open for booking (UI: Available/Unavailable toggle)
+  status    String   @default("available") // "available" | "unavailable"
+  isBooked  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([doctorId, date, startTime, endTime])
+  @@index([doctorId])
+}
