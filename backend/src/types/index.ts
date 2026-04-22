@@ -1,0 +1,25 @@
+export interface User {
+  id: string;
+  name?: string;
+  email: string;
+  passwordHash: string;
+  role: "admin" | "doctor" | "patient";
+}
+
+export interface LoginPayload {
+  email: string;
+  password?: string;
+}
+
+export interface RegisterPayload {
+  name: string;
+  email: string;
+  password?: string;
+}
+
+export interface AuthUser {
+  id: string;
+  email: string;
+  name: string;
+  role: "admin" | "doctor" | "patient";
+}
