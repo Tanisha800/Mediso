@@ -56,13 +56,13 @@ export function TopHeader({ userName, userRole }: { userName: string, userRole: 
             className="ml-2 flex h-9 w-9 xl:w-auto xl:px-1 xl:gap-2 cursor-pointer items-center justify-center rounded-full xl:rounded-xl outline-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           >
             <Avatar className="h-8 w-8 border border-white dark:border-slate-800 shadow-sm transition-transform hover:scale-105">
-              <AvatarFallback className="bg-gradient-to-br from-emerald-100 to-teal-100 text-teal-800 font-bold text-xs">
+              <AvatarFallback className="bg-gradient-to-br from-emerald-100 to-teal-100 text-teal-800 font-semibold text-xs">
                 {userName.charAt(0).toUpperCase()}
               </AvatarFallback>
             </Avatar>
             <div className="hidden xl:flex flex-col items-start pr-1">
-              <span className="text-sm font-bold text-slate-700 dark:text-slate-200 leading-tight">{userName}</span>
-              <span className="text-[10px] uppercase font-extrabold tracking-wider text-emerald-600/80 leading-none">{userRole}</span>
+              <span className="text-sm font-semibold text-slate-700 dark:text-slate-200 leading-tight">{userName}</span>
+              <span className="text-[10px] uppercase font-semibold tracking-wider text-emerald-600/80 leading-none">{userRole}</span>
             </div>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -71,7 +71,7 @@ export function TopHeader({ userName, userRole }: { userName: string, userRole: 
             className="w-40 rounded-xl p-1 border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-900 animate-in fade-in zoom-in-95 duration-200"
           >
             <div className="px-2 py-1.5 mb-0.5 border-b border-slate-100 dark:border-slate-800/50">
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Session</p>
+              <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Session</p>
             </div>
             <DropdownMenuItem
               onClick={handleLogout}
@@ -80,7 +80,7 @@ export function TopHeader({ userName, userRole }: { userName: string, userRole: 
               <div className="w-7 h-7 rounded-md bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center group-hover:scale-105 transition-transform">
                 <LogOut className="h-3.5 w-3.5" />
               </div>
-              <span className="text-xs font-bold tracking-tight">Log Out</span>
+              <span className="text-xs font-semibold tracking-tight">Log Out</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

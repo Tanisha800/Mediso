@@ -138,7 +138,7 @@ export function RegisterPatientModal({
             <div className="bg-white/20 p-3 rounded-2xl backdrop-blur-md">
               <UserPlus className="h-6 w-6 text-white" />
             </div>
-            <DialogTitle className="text-3xl font-black tracking-tight">
+            <DialogTitle className="text-3xl font-semibold tracking-tight">
               {patient ? "Edit Patient Details" : "Register New Patient"}
             </DialogTitle>
           </div>
@@ -147,7 +147,7 @@ export function RegisterPatientModal({
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 py-4">
           <div className="px-8 max-h-[60vh] overflow-y-auto custom-scrollbar pt-4 pb-2">
             {error && (
-              <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800 text-red-600 dark:text-red-400 text-sm font-bold rounded-2xl flex items-center gap-3 animate-in fade-in slide-in-from-top-2">
+              <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800 text-red-600 dark:text-red-400 text-sm font-semibold rounded-2xl flex items-center gap-3 animate-in fade-in slide-in-from-top-2">
                 <div className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
                 {error}
               </div>
@@ -302,14 +302,14 @@ export function RegisterPatientModal({
               type="button"
               variant="outline"
               onClick={onClose}
-              className="px-6 rounded-xl border-slate-200 dark:border-slate-800 font-bold"
+              className="px-6 rounded-xl border-slate-200 dark:border-slate-800 font-semibold"
             >
               Cancel
             </Button>
             <Button
               type="submit"
               disabled={loading}
-              className="px-8 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl shadow-lg shadow-emerald-500/20 font-bold min-w-[140px]"
+              className="px-8 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl shadow-lg shadow-emerald-500/20 font-semibold min-w-[140px]"
             >
               {loading ? <Loader2 className="animate-spin h-4 w-4" /> : (patient ? "Save Changes" : "Register Patient")}
             </Button>

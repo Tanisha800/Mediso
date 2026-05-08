@@ -47,12 +47,12 @@ export function EditProfileForm({ profile, onSave, onCancel }: EditProfileFormPr
 
   return (
     <div className="bg-white dark:bg-slate-900/50 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
-      <h2 className="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight mb-6">
+      <h2 className="text-xl font-semibold text-slate-900 dark:text-white uppercase tracking-tight mb-6">
         Edit Profile
       </h2>
       
       {error && (
-        <div className="mb-6 p-4 rounded-xl bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 text-sm font-bold border border-rose-100 dark:border-rose-900/30">
+        <div className="mb-6 p-4 rounded-xl bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 text-sm font-semibold border border-rose-100 dark:border-rose-900/30">
           {error}
         </div>
       )}
@@ -60,7 +60,7 @@ export function EditProfileForm({ profile, onSave, onCancel }: EditProfileFormPr
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Full Name *</label>
+            <label className="block text-[10px] font-semibold text-slate-500 uppercase tracking-widest mb-2">Full Name *</label>
             <Input 
               name="name" 
               value={formData.name} 
@@ -70,7 +70,7 @@ export function EditProfileForm({ profile, onSave, onCancel }: EditProfileFormPr
             />
           </div>
           <div>
-            <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Email Address *</label>
+            <label className="block text-[10px] font-semibold text-slate-500 uppercase tracking-widest mb-2">Email Address *</label>
             <Input 
               name="email" 
               type="email"
@@ -82,7 +82,7 @@ export function EditProfileForm({ profile, onSave, onCancel }: EditProfileFormPr
             />
           </div>
           <div>
-            <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Phone Number</label>
+            <label className="block text-[10px] font-semibold text-slate-500 uppercase tracking-widest mb-2">Phone Number</label>
             <Input 
               name="phone" 
               value={formData.phone || ""} 
@@ -91,7 +91,7 @@ export function EditProfileForm({ profile, onSave, onCancel }: EditProfileFormPr
             />
           </div>
           <div>
-            <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Date of Birth</label>
+            <label className="block text-[10px] font-semibold text-slate-500 uppercase tracking-widest mb-2">Date of Birth</label>
             <Input 
               name="dob" 
               type="date"
@@ -101,7 +101,7 @@ export function EditProfileForm({ profile, onSave, onCancel }: EditProfileFormPr
             />
           </div>
           <div>
-            <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Blood Group</label>
+            <label className="block text-[10px] font-semibold text-slate-500 uppercase tracking-widest mb-2">Blood Group</label>
             <Input 
               name="bloodGroup" 
               value={formData.bloodGroup || ""} 
@@ -116,7 +116,7 @@ export function EditProfileForm({ profile, onSave, onCancel }: EditProfileFormPr
           <Button 
             type="submit" 
             disabled={loading || !formData.name || !formData.email}
-            className="flex-1 h-12 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-widest text-xs"
+            className="flex-1 h-12 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold uppercase tracking-widest text-xs"
           >
             {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Save Changes"}
           </Button>
@@ -124,7 +124,7 @@ export function EditProfileForm({ profile, onSave, onCancel }: EditProfileFormPr
             type="button" 
             onClick={onCancel}
             variant="outline"
-            className="flex-1 h-12 rounded-xl border-slate-200 dark:border-slate-700 font-bold uppercase tracking-widest text-xs"
+            className="flex-1 h-12 rounded-xl border-slate-200 dark:border-slate-700 font-semibold uppercase tracking-widest text-xs"
           >
             Cancel
           </Button>

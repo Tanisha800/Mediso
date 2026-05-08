@@ -111,7 +111,7 @@ export default function AppointmentsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="relative">
           <div className="absolute -left-4 -top-4 w-16 h-16 bg-blue-400/10 rounded-full blur-2xl pointer-events-none" />
-          <h1 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white relative z-10">
+          <h1 className="text-4xl font-semibold tracking-tight text-slate-900 dark:text-white relative z-10">
             My Appointments
           </h1>
           <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-widest relative z-10">
@@ -122,7 +122,7 @@ export default function AppointmentsPage() {
         <div className="flex items-center gap-3">
           <Link href="/patient/doctors">
             <Button
-              className="h-11 px-6 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg shadow-blue-600/20 transition-all active:scale-95 flex items-center gap-2"
+              className="h-11 px-6 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-lg shadow-blue-600/20 transition-all active:scale-95 flex items-center gap-2"
             >
               <Plus className="h-4 w-4" />
               Book Appointment
@@ -141,7 +141,7 @@ export default function AppointmentsPage() {
           <button
             key={f.value}
             onClick={() => setActiveFilter(f.value as "all" | "upcoming" | "completed")}
-            className={`whitespace-nowrap px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 border ${
+            className={`whitespace-nowrap px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-300 border ${
               activeFilter === f.value
                 ? "bg-slate-900 text-white border-slate-900 shadow-lg shadow-slate-900/20 dark:bg-white dark:text-slate-900 dark:border-white"
                 : "bg-white text-slate-500 border-slate-200 hover:border-slate-300 dark:bg-slate-900 dark:text-slate-400 dark:border-slate-800"
@@ -162,12 +162,12 @@ export default function AppointmentsPage() {
         {loading ? (
           <div className="flex flex-col items-center justify-center py-24 text-slate-400">
             <Loader2 className="h-10 w-10 animate-spin mb-4 text-blue-500" />
-            <p className="text-sm font-bold uppercase tracking-widest">Loading...</p>
+            <p className="text-sm font-semibold uppercase tracking-widest">Loading...</p>
           </div>
         ) : filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
             <CalendarDays className="h-16 w-16 text-slate-200 dark:text-slate-800 mb-4" />
-            <p className="text-slate-500 dark:text-slate-400 font-black uppercase tracking-widest">No appointments found</p>
+            <p className="text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-widest">No appointments found</p>
           </div>
         ) : (
           filtered.map((appt) => (

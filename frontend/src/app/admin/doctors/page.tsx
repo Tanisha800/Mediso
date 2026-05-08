@@ -138,7 +138,7 @@ export default function AdminDoctorsPage() {
       {/* 1. Clear Visual Hierarchy + Page Title */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
             Doctors Directory
           </h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1.5">
@@ -226,12 +226,12 @@ export default function AdminDoctorsPage() {
                 <div className="col-span-4 w-full flex items-center gap-4">
                   <Avatar className="h-12 w-12 border-2 border-white dark:border-slate-800 shadow-sm bg-white text-emerald-700 dark:text-emerald-400">
                     <AvatarImage src={doctor.image} alt={doctor.name} />
-                    <AvatarFallback className={`font-bold ${getAvatarStyle(doctor.name)}`}>
+                    <AvatarFallback className={`font-semibold ${getAvatarStyle(doctor.name)}`}>
                       {doctor.name.replace("Dr. ", "").split(" ").map(n => n[0]).join("")}
                     </AvatarFallback>
                   </Avatar>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-bold text-slate-900 dark:text-white truncate group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+                    <h4 className="font-semibold text-slate-900 dark:text-white truncate group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                       {doctor.name}
                     </h4>
                     <div className="flex items-center gap-3 mt-1.5 text-xs text-slate-500">
@@ -255,7 +255,7 @@ export default function AdminDoctorsPage() {
 
                 {/* Status */}
                 <div className="col-span-2 w-full lg:w-auto">
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase ${doctor.status === "Active"
+                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase ${doctor.status === "Active"
                     ? "bg-emerald-100/80 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400"
                     : "bg-amber-100/80 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400"
                     }`}>
@@ -285,7 +285,7 @@ export default function AdminDoctorsPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4 animate-in fade-in">
           <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl w-full max-w-lg p-6 lg:p-8 animate-in zoom-in-95 duration-200 border border-slate-100 dark:border-slate-700/50">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+              <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">
                 {editingDoc ? 'Edit Doctor Profile' : 'Onboard New Doctor'}
               </h2>
               <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">

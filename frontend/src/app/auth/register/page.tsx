@@ -74,7 +74,7 @@ export default function RegisterPage() {
             <div className="flex items-center justify-center h-14 w-14 rounded-2xl bg-teal-600 shadow-lg shadow-teal-600/30">
               <Activity className="h-7 w-7 text-white" />
             </div>
-            <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">
+            <h1 className="text-2xl font-semibold text-slate-800 dark:text-slate-100 tracking-tight">
               Create an Account
             </h1>
             <p className="text-sm text-slate-500 dark:text-slate-400 text-center">

@@ -46,7 +46,7 @@ export function AppSidebar({ role }: { role: "admin" | "doctor" | "patient" }) {
   return (
     <Sidebar className="border-r border-emerald-100/50 dark:border-slate-800 bg-[#f8fcfb] dark:bg-slate-950">
       <SidebarHeader className="h-16 px-6 flex justify-center border-b border-emerald-100/50 dark:border-slate-800 bg-[#f8fcfb] dark:bg-slate-950">
-        <div className="flex items-center gap-3 font-bold text-xl text-slate-800 dark:text-slate-100 tracking-tight">
+        <div className="flex items-center gap-3 font-semibold text-xl text-slate-800 dark:text-slate-100 tracking-tight">
           <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-sm">
             <Activity className="h-5 w-5" />
           </div>
@@ -65,7 +65,7 @@ export function AppSidebar({ role }: { role: "admin" | "doctor" | "patient" }) {
                     <SidebarMenuButton
                       isActive={isActive}
                       tooltip={item.title}
-                      render={<Link href={item.url} className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-xl transition-all duration-200 group ${isActive ? "bg-emerald-50 text-emerald-800 font-bold dark:bg-emerald-900/40 dark:text-emerald-300" : "text-slate-500 font-semibold hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-slate-200"}`} />}
+                      render={<Link href={item.url} className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-xl transition-all duration-200 group ${isActive ? "bg-emerald-50 text-emerald-800 font-semibold dark:bg-emerald-900/40 dark:text-emerald-300" : "text-slate-500 font-semibold hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-slate-200"}`} />}
                     >
                       <div className={`flex items-center justify-center transition-colors ${isActive ? "text-emerald-600 dark:text-emerald-400" : "text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300"}`}>
                         <item.icon className="h-4 w-4" />

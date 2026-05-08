@@ -33,22 +33,22 @@ export function HistoryModal({ open, onOpenChange, record }: HistoryModalProps) 
       <DialogContent className="max-w-2xl w-full rounded-[28px] p-0 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl overflow-hidden" showCloseButton={false}>
         <div className="px-8 py-6 bg-gradient-to-r from-slate-50 via-white to-slate-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 border-b border-slate-200 dark:border-slate-800 flex justify-between items-start">
           <div className="flex-1">
-            <span className="inline-flex items-center px-2 py-1 rounded-md bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-[10px] font-black uppercase tracking-widest mb-3">
+            <span className="inline-flex items-center px-2 py-1 rounded-md bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-[10px] font-semibold uppercase tracking-widest mb-3">
               Medical Record
             </span>
-            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight uppercase">
+            <h2 className="text-2xl font-semibold text-slate-900 dark:text-white tracking-tight uppercase">
               {record.doctorName}
             </h2>
             <div className="flex items-center gap-4 mt-2">
               <div className="flex items-center gap-1.5 text-slate-500">
                 <CalendarDays className="h-4 w-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">
+                <span className="text-xs font-semibold uppercase tracking-wider">
                   {dateObj.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
                 </span>
               </div>
               <div className="flex items-center gap-1.5 text-slate-500">
                 <Clock className="h-4 w-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">
+                <span className="text-xs font-semibold uppercase tracking-wider">
                   {dateObj.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true })}
                 </span>
               </div>
@@ -64,7 +64,7 @@ export function HistoryModal({ open, onOpenChange, record }: HistoryModalProps) 
           <div className="space-y-4">
             <div className="flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-2">
               <Stethoscope className="h-5 w-5 text-emerald-500" />
-              <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-widest">Diagnosis & Notes</h3>
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-widest">Diagnosis & Notes</h3>
             </div>
             <div className="bg-slate-50 dark:bg-slate-800/40 rounded-2xl p-6 border border-slate-100 dark:border-slate-700/50">
               <p className="text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
@@ -83,14 +83,14 @@ export function HistoryModal({ open, onOpenChange, record }: HistoryModalProps) 
             <div className="space-y-4">
               <div className="flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-2">
                 <Pill className="h-5 w-5 text-emerald-500" />
-                <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-widest">Prescription Details</h3>
+                <h3 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-widest">Prescription Details</h3>
               </div>
               
               <div className="grid grid-cols-1 gap-3">
                 {record.medicines.map((med, idx) => (
                   <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/50 shadow-sm">
                     <div className="flex-1">
-                      <h4 className="font-bold text-slate-900 dark:text-white">{med.name}</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-white">{med.name}</h4>
                       <p className="text-xs text-slate-500 uppercase tracking-wider mt-1">{med.dosage}</p>
                     </div>
                     <div className="flex sm:flex-col items-center sm:items-end gap-2 sm:gap-1 text-sm font-semibold text-slate-700 dark:text-slate-300">

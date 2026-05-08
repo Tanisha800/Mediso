@@ -122,7 +122,7 @@ export default function AdminAppointmentsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-3">
+          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white flex items-center gap-3">
             Appointment Schedule
           </h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1.5">
@@ -186,7 +186,7 @@ export default function AdminAppointmentsPage() {
         {loading ? (
           <div className="flex flex-col items-center justify-center p-20 bg-white dark:bg-slate-800/50 rounded-3xl border border-dashed border-slate-200 dark:border-slate-700">
             <Loader2 className="h-10 w-10 text-emerald-500 animate-spin mb-4" />
-            <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Syncing Schedule...</p>
+            <p className="text-slate-500 font-semibold uppercase tracking-widest text-xs">Syncing Schedule...</p>
           </div>
         ) : filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center p-16 bg-white dark:bg-slate-800/50 rounded-3xl border border-dashed border-slate-200 dark:border-slate-700">
@@ -199,12 +199,12 @@ export default function AdminAppointmentsPage() {
           return (
             <div key={groupName} className="space-y-4">
               <div className="flex items-center gap-4">
-                <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-100 flex items-center gap-2">
                   {groupName === "Today" && <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />}
                   {groupName}
                 </h2>
                 <div className="h-px flex-1 bg-slate-200 dark:bg-slate-800" />
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">{groupAppointments.length} Appointments</span>
+                <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest">{groupAppointments.length} Appointments</span>
               </div>
 
               <div className="grid gap-4">
@@ -222,10 +222,10 @@ export default function AdminAppointmentsPage() {
                       )}
 
                       <div className="w-32 shrink-0 flex flex-col relative z-10">
-                        <span className={`text-[22px] font-black tracking-tight ${isLive ? "text-emerald-600 dark:text-emerald-400" : "text-slate-800 dark:text-slate-100"}`}>{apt.time}</span>
-                        {apt.dateStr && <span className="text-xs font-bold text-slate-400 mt-1 uppercase tracking-wider">{apt.dateStr}</span>}
+                        <span className={`text-[22px] font-semibold tracking-tight ${isLive ? "text-emerald-600 dark:text-emerald-400" : "text-slate-800 dark:text-slate-100"}`}>{apt.time}</span>
+                        {apt.dateStr && <span className="text-xs font-semibold text-slate-400 mt-1 uppercase tracking-wider">{apt.dateStr}</span>}
                         {isLive && (
-                          <span className="mt-2 inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest font-bold text-emerald-600 bg-emerald-100 dark:bg-emerald-500/20 py-1 px-2 rounded-md w-max animate-pulse">
+                          <span className="mt-2 inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest font-semibold text-emerald-600 bg-emerald-100 dark:bg-emerald-500/20 py-1 px-2 rounded-md w-max animate-pulse">
                             <Activity className="w-3 h-3" /> Live Now
                           </span>
                         )}
@@ -236,12 +236,12 @@ export default function AdminAppointmentsPage() {
                       <div className="flex-1 min-w-0 grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
                         <div className="flex items-center gap-4">
                           <Avatar className={`h-12 w-12 border-2 border-white dark:border-slate-800 shadow-sm ${getPatientAvatarTint(apt.patientName)}`}>
-                            <AvatarFallback className="font-extrabold text-sm bg-transparent">
+                            <AvatarFallback className="font-semibold text-sm bg-transparent">
                               {apt.patientName.split(" ").map((n: string) => n[0]).join("").substring(0, 2)}
                             </AvatarFallback>
                           </Avatar>
                           <div className="min-w-0">
-                            <h4 className="font-extrabold text-slate-900 dark:text-slate-100 text-base truncate flex items-center gap-2">
+                            <h4 className="font-semibold text-slate-900 dark:text-slate-100 text-base truncate flex items-center gap-2">
                               {apt.patientName}
                             </h4>
                             <p className="text-xs font-semibold text-slate-500 mt-1 uppercase tracking-wider truncate bg-slate-100 dark:bg-slate-800 w-max px-2 py-0.5 rounded-md">{apt.type}</p>
@@ -264,7 +264,7 @@ export default function AdminAppointmentsPage() {
                       </div>
 
                       <div className="w-32 shrink-0 relative z-10 flex lg:justify-center">
-                        <span className={`inline-flex items-center justify-center w-full max-w-[120px] px-3 py-1.5 rounded-lg text-[10px] font-bold tracking-widest uppercase shadow-sm border transition-colors ${apt.status === "Scheduled" ? "bg-teal-50 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400 border-teal-200 dark:border-teal-800/50" :
+                        <span className={`inline-flex items-center justify-center w-full max-w-[120px] px-3 py-1.5 rounded-lg text-[10px] font-semibold tracking-widest uppercase shadow-sm border transition-colors ${apt.status === "Scheduled" ? "bg-teal-50 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400 border-teal-200 dark:border-teal-800/50" :
                           apt.status === "Completed" ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/50" :
                             apt.status === "Pending" ? "bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 border-amber-300 dark:border-amber-700/60" :
                               "bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400 border-rose-200 dark:border-rose-800/50"
@@ -279,7 +279,7 @@ export default function AdminAppointmentsPage() {
                             <Button
                               size="sm"
                               onClick={() => handleStatusUpdate(apt.id, "Completed")}
-                              className="h-9 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md shadow-emerald-500/20 active:scale-95 transition-all"
+                              className="h-9 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-md shadow-emerald-500/20 active:scale-95 transition-all"
                             >
                               <CheckCircle2 className="h-4 w-4 mr-1.5" />
                               Confirm

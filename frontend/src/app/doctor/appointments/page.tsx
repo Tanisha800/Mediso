@@ -208,7 +208,7 @@ export default function DoctorAppointmentsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="relative">
           <div className="absolute -left-4 -top-4 w-16 h-16 bg-blue-400/10 rounded-full blur-2xl pointer-events-none" />
-          <h1 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white relative z-10">
+          <h1 className="text-4xl font-semibold tracking-tight text-slate-900 dark:text-white relative z-10">
             Appointments
           </h1>
           <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-widest relative z-10">
@@ -257,7 +257,7 @@ export default function DoctorAppointmentsPage() {
           <button
             key={f.value}
             onClick={() => setActiveFilter(f.value)}
-            className={`whitespace-nowrap px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 border ${activeFilter === f.value
+            className={`whitespace-nowrap px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-300 border ${activeFilter === f.value
                 ? "bg-slate-900 text-white border-slate-900 shadow-lg shadow-slate-900/20 dark:bg-white dark:text-slate-900 dark:border-white"
                 : "bg-white text-slate-500 border-slate-200 hover:border-slate-300 dark:bg-slate-900 dark:text-slate-400 dark:border-slate-800"
               }`}
@@ -277,12 +277,12 @@ export default function DoctorAppointmentsPage() {
         {loading ? (
           <div className="flex flex-col items-center justify-center py-24 text-slate-400">
             <Loader2 className="h-10 w-10 animate-spin mb-4 text-blue-500" />
-            <p className="text-sm font-bold uppercase tracking-widest">Gathering records...</p>
+            <p className="text-sm font-semibold uppercase tracking-widest">Gathering records...</p>
           </div>
         ) : filteredAndSorted.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
             <CalendarDays className="h-16 w-16 text-slate-200 dark:text-slate-800 mb-4" />
-            <p className="text-slate-500 dark:text-slate-400 font-black uppercase tracking-widest">No appointments found</p>
+            <p className="text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-widest">No appointments found</p>
             {search && (
               <p className="text-xs mt-2 opacity-70 uppercase tracking-widest">
                 Try clearing your search filter
@@ -297,23 +297,23 @@ export default function DoctorAppointmentsPage() {
               className="group bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer hover:border-blue-400/30 backdrop-blur-sm relative overflow-hidden"
             >
               <div className="flex items-center gap-6 flex-1 min-w-0">
-                <div className="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center font-black text-xl text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-500 group-hover:border-blue-100 dark:group-hover:bg-blue-900/20 transition-colors shrink-0">
+                <div className="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center font-semibold text-xl text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-500 group-hover:border-blue-100 dark:group-hover:bg-blue-900/20 transition-colors shrink-0">
                   {appt.patientName.charAt(0)}
                 </div>
                 <div className="min-w-0">
-                  <h3 className="text-xl font-black text-slate-900 dark:text-white truncate tracking-tight mb-1 uppercase">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white truncate tracking-tight mb-1 uppercase">
                     {appt.patientName}
                   </h3>
                   <div className="flex flex-wrap items-center gap-4">
                     <div className="flex items-center gap-1.5 text-slate-400 dark:text-slate-500">
                       <CalendarDays className="h-4 w-4" />
-                      <span className="text-xs font-bold uppercase tracking-wider">
+                      <span className="text-xs font-semibold uppercase tracking-wider">
                         {new Date(appt.timeSlot).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
                       </span>
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-400 dark:text-slate-500">
                       <Clock className="h-4 w-4" />
-                      <span className="text-xs font-bold uppercase tracking-wider">
+                      <span className="text-xs font-semibold uppercase tracking-wider">
                         {new Date(appt.timeSlot).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true }).toUpperCase()}
                       </span>
                     </div>
@@ -324,7 +324,7 @@ export default function DoctorAppointmentsPage() {
               <div className="flex-1 flex justify-center shrink-0">
                 <Badge
                   variant="outline"
-                  className={`border-0 px-4 py-1 rounded-full font-black text-[10px] uppercase tracking-widest ${statusStyles[appt.status]}`}
+                  className={`border-0 px-4 py-1 rounded-full font-semibold text-[10px] uppercase tracking-widest ${statusStyles[appt.status]}`}
                 >
                   {appt.status}
                 </Badge>
@@ -333,7 +333,7 @@ export default function DoctorAppointmentsPage() {
               <div className="flex items-center gap-3 shrink-0" onClick={(e) => e.stopPropagation()}>
                 <Button
                   variant="ghost"
-                  className="h-10 px-4 rounded-xl font-black text-[10px] uppercase tracking-widest text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
+                  className="h-10 px-4 rounded-xl font-semibold text-[10px] uppercase tracking-widest text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
                   onClick={(e) => {
                     e.stopPropagation();
                     setDetailsModal({ open: true, appointment: appt });
@@ -343,7 +343,7 @@ export default function DoctorAppointmentsPage() {
                 </Button>
                 {appt.status !== 'completed' && appt.status !== 'cancelled' && (
                   <Button
-                    className="h-10 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-[10px] uppercase tracking-widest shadow-lg shadow-emerald-600/20 transition-all active:scale-95"
+                    className="h-10 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-[10px] uppercase tracking-widest shadow-lg shadow-emerald-600/20 transition-all active:scale-95"
                     disabled={completing === appt.id}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -378,7 +378,7 @@ export default function DoctorAppointmentsPage() {
                     {detailsModal.appointment.status}
                   </Badge>
 
-                  <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white">
+                  <h2 className="text-3xl font-semibold text-slate-900 dark:text-white">
                     {detailsModal.appointment.patientName}
                   </h2>
 
@@ -396,15 +396,15 @@ export default function DoctorAppointmentsPage() {
               <div className="flex-1 overflow-y-auto p-8 space-y-8">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="px-6 py-5 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/50 flex flex-col gap-1 transition-all hover:bg-slate-100 dark:hover:bg-slate-800/60">
-                    <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-tight">Date</p>
-                    <p className="text-sm font-bold text-slate-900 dark:text-white">
+                    <p className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-tight">Date</p>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">
                       {new Date(detailsModal.appointment.timeSlot).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
                     </p>
                   </div>
 
                   <div className="px-6 py-5 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/50 flex flex-col gap-1 transition-all hover:bg-slate-100 dark:hover:bg-slate-800/60">
-                    <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-tight">Time</p>
-                    <p className="text-sm font-bold text-slate-900 dark:text-white">
+                    <p className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-tight">Time</p>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">
                       {new Date(detailsModal.appointment.timeSlot).toLocaleTimeString('en-IN', {
                         hour: "2-digit",
                         minute: "2-digit",
@@ -414,8 +414,8 @@ export default function DoctorAppointmentsPage() {
                   </div>
 
                   <div className="px-6 py-5 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/50 flex flex-col gap-1 transition-all hover:bg-slate-100 dark:hover:bg-slate-800/60">
-                    <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-tight">Patient ID</p>
-                    <p className="text-sm font-bold text-slate-900 dark:text-white truncate">
+                    <p className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-tight">Patient ID</p>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white truncate">
                       #{detailsModal.appointment.patientId}
                     </p>
                   </div>
@@ -500,8 +500,8 @@ export default function DoctorAppointmentsPage() {
         >
           <div className="bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-950 p-8 md:p-10 border-b border-slate-100 dark:border-slate-800 relative z-10 flex justify-between items-start">
             <div className="flex-1 pr-8">
-              <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight relative z-10">Write Prescription</h2>
-              <p className="text-slate-500 font-bold uppercase tracking-[0.2em] text-[10px] mt-2">Patient: {rxDialog.patientName}</p>
+              <h2 className="text-4xl font-semibold text-slate-900 dark:text-white tracking-tight relative z-10">Write Prescription</h2>
+              <p className="text-slate-500 font-semibold uppercase tracking-[0.2em] text-[10px] mt-2">Patient: {rxDialog.patientName}</p>
             </div>
             <DialogClose className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
               <X className="h-6 w-6 md:h-7 md:h-7" />

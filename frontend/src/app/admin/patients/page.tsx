@@ -87,7 +87,7 @@ export default function AdminPatientsPage() {
       {/* ... header and stat cards same as before ... */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
             Patient Roster
           </h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1.5">
@@ -209,12 +209,12 @@ export default function AdminPatientsPage() {
               >
                 <div className="col-span-4 w-full flex items-center gap-4">
                   <Avatar className="h-12 w-12 border-2 border-white dark:border-slate-800 shadow-sm bg-white">
-                    <AvatarFallback className={`font-bold ${getAvatarStyle(patient.name)}`}>
+                    <AvatarFallback className={`font-semibold ${getAvatarStyle(patient.name)}`}>
                       {patient.name.split(" ").map(n => n[0]).join("").substring(0, 2)}
                     </AvatarFallback>
                   </Avatar>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-bold text-slate-900 dark:text-white truncate group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+                    <h4 className="font-semibold text-slate-900 dark:text-white truncate group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                       {patient.name}
                     </h4>
                     <div className="flex items-center gap-3 mt-1 text-xs font-medium text-slate-400">
@@ -238,7 +238,7 @@ export default function AdminPatientsPage() {
                 </div>
 
                 <div className="col-span-2 w-full lg:w-auto">
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase shadow-sm ${patient.status?.toLowerCase() === "active"
+                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase shadow-sm ${patient.status?.toLowerCase() === "active"
                       ? "bg-emerald-100/80 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50"
                       : patient.status?.toLowerCase() === "recovered"
                         ? "bg-teal-50 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400 border border-teal-200 dark:border-teal-800/50"

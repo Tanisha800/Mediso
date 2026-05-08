@@ -27,24 +27,24 @@ export function ProfileCard({ profile, onEdit }: ProfileCardProps) {
           {profile.avatar ? (
             <img src={profile.avatar} alt={profile.name} className="w-full h-full object-cover" />
           ) : (
-            <span className="text-3xl font-black text-slate-400">
+            <span className="text-3xl font-semibold text-slate-400">
               {profile.name.charAt(0)}
             </span>
           )}
         </div>
         
         <div className="flex-1">
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-white uppercase tracking-tight">
             {profile.name}
           </h2>
           <div className="flex items-center gap-2 mt-1">
-            <span className="inline-flex items-center px-2 py-1 rounded-md bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-[10px] font-black uppercase tracking-widest">
+            <span className="inline-flex items-center px-2 py-1 rounded-md bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-[10px] font-semibold uppercase tracking-widest">
               Patient
             </span>
           </div>
         </div>
         
-        <Button onClick={onEdit} className="w-full md:w-auto h-11 rounded-xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 font-bold px-6 text-xs uppercase tracking-widest">
+        <Button onClick={onEdit} className="w-full md:w-auto h-11 rounded-xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 font-semibold px-6 text-xs uppercase tracking-widest">
           Edit Profile
         </Button>
       </div>
@@ -53,32 +53,32 @@ export function ProfileCard({ profile, onEdit }: ProfileCardProps) {
         <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/50">
           <Mail className="h-5 w-5 text-slate-400" />
           <div>
-            <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Email</p>
-            <p className="text-sm font-bold text-slate-900 dark:text-white">{profile.email}</p>
+            <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Email</p>
+            <p className="text-sm font-semibold text-slate-900 dark:text-white">{profile.email}</p>
           </div>
         </div>
 
         <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/50">
           <Phone className="h-5 w-5 text-slate-400" />
           <div>
-            <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Phone</p>
-            <p className="text-sm font-bold text-slate-900 dark:text-white">{profile.phone || "Not provided"}</p>
+            <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Phone</p>
+            <p className="text-sm font-semibold text-slate-900 dark:text-white">{profile.phone || "Not provided"}</p>
           </div>
         </div>
 
         <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/50">
           <Calendar className="h-5 w-5 text-slate-400" />
           <div>
-            <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Date of Birth</p>
-            <p className="text-sm font-bold text-slate-900 dark:text-white">{profile.dob || "Not provided"}</p>
+            <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Date of Birth</p>
+            <p className="text-sm font-semibold text-slate-900 dark:text-white">{profile.dob || "Not provided"}</p>
           </div>
         </div>
 
         <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/50">
           <Droplets className="h-5 w-5 text-rose-400" />
           <div>
-            <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Blood Group</p>
-            <p className="text-sm font-bold text-slate-900 dark:text-white">{profile.bloodGroup || "Not provided"}</p>
+            <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Blood Group</p>
+            <p className="text-sm font-semibold text-slate-900 dark:text-white">{profile.bloodGroup || "Not provided"}</p>
           </div>
         </div>
       </div>

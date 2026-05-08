@@ -48,10 +48,10 @@ export function ViewPatientModal({
         <Icon className="h-4 w-4 text-slate-600 dark:text-slate-400" />
       </div>
       <div className="flex flex-col min-w-0">
-        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-0.5">
+        <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-0.5">
           {label}
         </span>
-        <span className="text-sm font-bold text-slate-900 dark:text-slate-100 truncate">
+        <span className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate">
           {value || "N/A"}
         </span>
       </div>
@@ -70,7 +70,7 @@ export function ViewPatientModal({
           <div className="absolute -bottom-12 left-8">
             <div className="p-1.5 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
               <div className="h-24 w-24 rounded-[22px] bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/50 dark:to-teal-900/50 flex items-center justify-center border-4 border-white dark:border-slate-900 overflow-hidden">
-                <span className="text-4xl font-black text-emerald-700 dark:text-emerald-400 tracking-tighter">
+                <span className="text-4xl font-semibold text-emerald-700 dark:text-emerald-400 tracking-tighter">
                   {patient.name.split(" ").map(n => n[0]).join("").substring(0, 2)}
                 </span>
               </div>
@@ -82,15 +82,15 @@ export function ViewPatientModal({
         <div className="px-8 pt-16 pb-8">
           <div className="flex items-center justify-between mb-8">
             <div className="space-y-1">
-              <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight leading-none">
+              <h2 className="text-3xl font-semibold text-slate-900 dark:text-white tracking-tight leading-none">
                 {patient.name}
               </h2>
-              <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-xs">
+              <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold text-xs">
                 <IdCard className="h-3.5 w-3.5" />
                 <span>Patient ID: {patient.patientId || "N/A"}</span>
               </div>
             </div>
-            <span className={`inline-flex items-center px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase shadow-sm border ${patient.status?.toLowerCase() === "active"
+            <span className={`inline-flex items-center px-4 py-2 rounded-xl text-[10px] font-semibold tracking-widest uppercase shadow-sm border ${patient.status?.toLowerCase() === "active"
               ? "bg-emerald-50 text-emerald-700 border-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800/50"
               : "bg-amber-50 text-amber-700 border-amber-100 dark:bg-amber-900/30 dark:text-amber-400 dark:border-amber-800/50"
               }`}>
@@ -161,7 +161,7 @@ export function ViewPatientModal({
               type="button"
               variant="outline"
               onClick={onClose}
-              className="px-6 rounded-2xl border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-bold shadow-sm"
+              className="px-6 rounded-2xl border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 font-semibold shadow-sm"
             >
               Close
             </Button>

@@ -119,10 +119,10 @@ export function RescheduleModal({
               <CalendarIcon className="h-7 w-7" />
             </div>
             <div>
-              <DialogTitle className="text-2xl font-black text-white tracking-tight">
+              <DialogTitle className="text-2xl font-semibold text-white tracking-tight">
                 Reschedule
               </DialogTitle>
-              <p className="text-[9px] font-black text-emerald-50/80 uppercase tracking-[0.25em] mt-1">
+              <p className="text-[9px] font-semibold text-emerald-50/80 uppercase tracking-[0.25em] mt-1">
                 Moving {appointment.patientName}'s Slot
               </p>
             </div>
@@ -135,39 +135,39 @@ export function RescheduleModal({
                   <User className="h-5 w-5 text-emerald-600" />
               </div>
               <div>
-                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Specialist</p>
-                  <p className="font-bold text-slate-700 dark:text-slate-200">{appointment.doctorName}</p>
+                  <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Specialist</p>
+                  <p className="font-semibold text-slate-700 dark:text-slate-200">{appointment.doctorName}</p>
               </div>
           </div>
 
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-2">
+              <Label className="text-[9px] font-semibold uppercase tracking-[0.2em] text-slate-400 flex items-center gap-2">
                 <CalendarIcon className="h-2.5 w-2.5" /> 1. Select New Date
               </Label>
               <Input
                 type="date"
-                className="h-12 rounded-2xl border-2 font-bold text-sm px-4 focus:border-emerald-500"
+                className="h-12 rounded-2xl border-2 font-semibold text-sm px-4 focus:border-emerald-500"
                 {...register("date")}
                 min={new Date().toISOString().split('T')[0]}
               />
             </div>
 
             <div className="space-y-2">
-              <Label className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 flex items-center gap-2">
+              <Label className="text-[9px] font-semibold uppercase tracking-[0.2em] text-slate-400 flex items-center gap-2">
                 <Clock className="h-2.5 w-2.5" /> 2. Choose New Time
               </Label>
               {fetchingSlots ? (
                 <div className="h-12 flex items-center gap-2 px-4 bg-slate-50 rounded-2xl animate-pulse">
                   <Loader2 className="h-4 w-4 animate-spin text-slate-400" />
-                  <span className="text-[10px] font-bold text-slate-400">Fetching available slots...</span>
+                  <span className="text-[10px] font-semibold text-slate-400">Fetching available slots...</span>
                 </div>
               ) : !selectedDate ? (
-                <div className="h-12 flex items-center px-4 bg-slate-50 rounded-2xl text-[10px] font-bold text-slate-400 italic">
+                <div className="h-12 flex items-center px-4 bg-slate-50 rounded-2xl text-[10px] font-semibold text-slate-400 italic">
                   Select a date first
                 </div>
               ) : availableTimesForDate.length === 0 ? (
-                <div className="h-12 flex items-center px-4 bg-rose-50 rounded-2xl text-[10px] font-bold text-rose-400 italic">
+                <div className="h-12 flex items-center px-4 bg-rose-50 rounded-2xl text-[10px] font-semibold text-rose-400 italic">
                   No slots set for this date
                 </div>
               ) : (
@@ -179,7 +179,7 @@ export function RescheduleModal({
                         key={slot.id}
                         type="button"
                         onClick={() => setValue("time", slot.startTime)}
-                        className={`px-4 py-2 rounded-xl text-[10px] font-black transition-all border-2 ${selectedTime === slot.startTime ? "bg-emerald-600 border-emerald-600 text-white shadow-lg shadow-emerald-500/20" : isCurrent ? "bg-amber-50 border-amber-200 text-amber-700" : "bg-white border-slate-100 text-slate-600 hover:border-emerald-200"}`}
+                        className={`px-4 py-2 rounded-xl text-[10px] font-semibold transition-all border-2 ${selectedTime === slot.startTime ? "bg-emerald-600 border-emerald-600 text-white shadow-lg shadow-emerald-500/20" : isCurrent ? "bg-amber-50 border-amber-200 text-amber-700" : "bg-white border-slate-100 text-slate-600 hover:border-emerald-200"}`}
                       >
                         {slot.startTime} {isCurrent && "(Current)"}
                       </button>
@@ -187,13 +187,13 @@ export function RescheduleModal({
                   })}
                 </div>
               )}
-              {errors.time && <p className="text-[10px] font-bold text-red-500">{errors.time.message}</p>}
+              {errors.time && <p className="text-[10px] font-semibold text-red-500">{errors.time.message}</p>}
             </div>
           </div>
 
           <DialogFooter className="pt-4 flex items-center gap-4">
-            <Button type="button" variant="ghost" onClick={onClose} className="h-12 px-6 rounded-xl font-black text-[10px] uppercase tracking-widest text-slate-400">Cancel</Button>
-            <Button type="submit" disabled={loading || !selectedTime} className="h-12 px-8 flex-1 rounded-2xl bg-emerald-600 text-white font-black text-xs uppercase tracking-widest shadow-xl shadow-emerald-500/20 active:scale-95 transition-all">
+            <Button type="button" variant="ghost" onClick={onClose} className="h-12 px-6 rounded-xl font-semibold text-[10px] uppercase tracking-widest text-slate-400">Cancel</Button>
+            <Button type="submit" disabled={loading || !selectedTime} className="h-12 px-8 flex-1 rounded-2xl bg-emerald-600 text-white font-semibold text-xs uppercase tracking-widest shadow-xl shadow-emerald-500/20 active:scale-95 transition-all">
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <span className="flex items-center gap-2">Update Schedule <ArrowRight className="h-4 w-4" /></span>}
             </Button>
           </DialogFooter>

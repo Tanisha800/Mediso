@@ -30,8 +30,8 @@ export default function AdminDashboardPage() {
     fetchStats();
   }, []);
 
-  if (loading) return <div className="p-6 text-emerald-600 font-bold">Loading Mediso Control Center...</div>;
-  if (error) return <div className="p-6 text-rose-500 font-bold">{error}</div>;
+  if (loading) return <div className="p-6 text-emerald-600 font-semibold">Loading Mediso Control Center...</div>;
+  if (error) return <div className="p-6 text-rose-500 font-semibold">{error}</div>;
   if (!stats) return null;
 
   const max = Math.max(...traffic);
@@ -44,7 +44,7 @@ export default function AdminDashboardPage() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
         <div className="relative">
           <div className="absolute -left-4 -top-4 w-20 h-20 bg-emerald-400/20 rounded-full blur-3xl pointer-events-none" />
-          <h1 className="text-4xl font-normal tracking-tight text-slate-900 dark:text-white flex items-center gap-3 relative z-10">
+          <h1 className="text-4xl font-semibold tracking-tight text-slate-900 dark:text-white flex items-center gap-3 relative z-10">
             Control Center
           </h1>
           <p className="text-base text-slate-500 dark:text-slate-400 mt-2 font-medium max-w-xl relative z-10">
@@ -64,21 +64,21 @@ export default function AdminDashboardPage() {
           </div>
 
           <div className="relative z-10 flex items-center justify-between mb-12">
-            <h3 className="font-bold text-emerald-50 text-lg flex items-center gap-3 tracking-tight">
+            <h3 className="font-semibold text-emerald-50 text-lg flex items-center gap-3 tracking-tight">
               <span className="p-2.5 bg-white/10 rounded-2xl backdrop-blur-md border border-white/10 shadow-inner">
                 <DollarSign className="h-5 w-5 text-emerald-100" />
               </span>
               Gross Revenue
             </h3>
-            <span className="bg-white/10 text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full backdrop-blur-md shadow-inner border border-white/20 flex items-center gap-1.5">
+            <span className="bg-white/10 text-white text-[10px] font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full backdrop-blur-md shadow-inner border border-white/20 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Live Month
             </span>
           </div>
 
           <div className="relative z-10 flex items-end justify-between">
             <div>
-              <p className="text-6xl font-black mb-3 tracking-tighter drop-shadow-xl text-transparent bg-clip-text bg-gradient-to-br from-white to-emerald-100">₹ {(stats.totalRevenue ?? 0).toLocaleString('en-IN')}</p>
-              <div className="flex items-center text-xs font-bold text-emerald-50 bg-black/20 w-max px-3 py-1.5 rounded-xl backdrop-blur-md border border-white/10 shadow-sm">
+              <p className="text-6xl font-semibold mb-3 tracking-tighter drop-shadow-xl text-transparent bg-clip-text bg-gradient-to-br from-white to-emerald-100">₹ {(stats.totalRevenue ?? 0).toLocaleString('en-IN')}</p>
+              <div className="flex items-center text-xs font-semibold text-emerald-50 bg-black/20 w-max px-3 py-1.5 rounded-xl backdrop-blur-md border border-white/10 shadow-sm">
                 <TrendingUp className="h-3.5 w-3.5 mr-1.5 text-emerald-400" />
                 <span>+12.5% projected vs last month</span>
               </div>
@@ -106,9 +106,9 @@ export default function AdminDashboardPage() {
             </div>
           </div>
           <div className="relative z-10">
-            <h3 className="font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest text-xs mb-1">Total Patients</h3>
+            <h3 className="font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest text-xs mb-1">Total Patients</h3>
             <div className="flex items-end gap-3 mb-2">
-              <p className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">{(stats.totalPatients ?? 0).toLocaleString('en-IN')}</p>
+              <p className="text-4xl font-semibold text-slate-900 dark:text-white tracking-tight">{(stats.totalPatients ?? 0).toLocaleString('en-IN')}</p>
             </div>
           </div>
         </div>
@@ -126,9 +126,9 @@ export default function AdminDashboardPage() {
             </div>
           </div>
           <div className="relative z-10">
-            <h3 className="font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest text-xs mb-1">Active Doctors</h3>
+            <h3 className="font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest text-xs mb-1">Active Doctors</h3>
             <div className="flex items-end gap-3 mb-2">
-              <p className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">{(stats.activeDoctors ?? 0).toLocaleString('en-IN')}</p>
+              <p className="text-4xl font-semibold text-slate-900 dark:text-white tracking-tight">{(stats.activeDoctors ?? 0).toLocaleString('en-IN')}</p>
             </div>
           </div>
         </div>
@@ -142,10 +142,10 @@ export default function AdminDashboardPage() {
         <div className="lg:col-span-7 bg-white dark:bg-slate-800/90 rounded-3xl border border-slate-200/60 dark:border-slate-700/50 p-8 flex flex-col shadow-lg shadow-slate-200/30 transition-all">
           <div className="flex justify-between items-start mb-6 pb-4 border-b border-slate-100 dark:border-slate-700/50">
             <div>
-              <h3 className="text-xl font-black text-slate-900 dark:text-white">Traffic Density</h3>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white">Traffic Density</h3>
               <p className="text-xs font-semibold text-slate-400 mt-1 uppercase tracking-wider">Weekly Output Data</p>
             </div>
-            <select className="h-10 px-2 text-sm font-bold border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-xl focus:ring-emerald-500/30 focus:border-emerald-500 outline-none cursor-pointer shadow-sm transition-shadow hover:shadow-md">
+            <select className="h-10 px-2 text-sm font-semibold border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-xl focus:ring-emerald-500/30 focus:border-emerald-500 outline-none cursor-pointer shadow-sm transition-shadow hover:shadow-md">
               <option>This Week</option>
               <option>Last Week</option>
             </select>
@@ -156,14 +156,14 @@ export default function AdminDashboardPage() {
 
             {/* Y-Axis */}
             <div className="flex flex-col justify-between items-end pr-4 border-r border-slate-100 dark:border-slate-700 pb-8 shrink-0 w-12 z-20">
-              <span className="text-[10px] font-bold text-slate-400">100</span>
-              <span className="text-[10px] font-bold text-slate-400">75</span>
-              <span className="text-[10px] font-bold text-slate-400">50</span>
-              <span className="text-[10px] font-bold text-slate-400">25</span>
-              <span className="text-[10px] font-bold text-slate-400">0</span>
+              <span className="text-[10px] font-semibold text-slate-400">100</span>
+              <span className="text-[10px] font-semibold text-slate-400">75</span>
+              <span className="text-[10px] font-semibold text-slate-400">50</span>
+              <span className="text-[10px] font-semibold text-slate-400">25</span>
+              <span className="text-[10px] font-semibold text-slate-400">0</span>
             </div>
 
-            <div className="absolute -left-12 top-1/2 -rotate-90 -translate-y-1/2 text-[10px] font-black uppercase tracking-widest text-slate-400 select-none">
+            <div className="absolute -left-12 top-1/2 -rotate-90 -translate-y-1/2 text-[10px] font-semibold uppercase tracking-widest text-slate-400 select-none">
               Patient Volume
             </div>
 
@@ -178,19 +178,19 @@ export default function AdminDashboardPage() {
                         className={`w-full rounded-t-md transition-all duration-700 relative ${isPeak ? "bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.4)]" : "bg-slate-300 group-hover:bg-emerald-400"}`}
                         style={{ height: `${heightPct}%` }}
                       >
-                        <div className="absolute opacity-0 group-hover:opacity-100 -top-8 left-1/2 -translate-x-1/2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[10px] py-1 px-2 rounded-lg whitespace-nowrap transition-all shadow-xl z-20 font-bold scale-90 group-hover:scale-100 pointer-events-none">
+                        <div className="absolute opacity-0 group-hover:opacity-100 -top-8 left-1/2 -translate-x-1/2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[10px] py-1 px-2 rounded-lg whitespace-nowrap transition-all shadow-xl z-20 font-semibold scale-90 group-hover:scale-100 pointer-events-none">
                           {h}
                         </div>
                       </div>
                     </div>
 
                     {/* X-Axis Label */}
-                    <span className="absolute -bottom-6 text-[10px] font-black text-slate-500 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors uppercase tracking-wider">
+                    <span className="absolute -bottom-6 text-[10px] font-semibold text-slate-500 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors uppercase tracking-wider">
                       {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][i]}
                     </span>
 
                     {isPeak && (
-                      <span className="absolute -top-6 text-[9px] font-black tracking-widest text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">PEAK</span>
+                      <span className="absolute -top-6 text-[9px] font-semibold tracking-widest text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">PEAK</span>
                     )}
                   </div>
                 );
@@ -203,7 +203,7 @@ export default function AdminDashboardPage() {
         <div className="lg:col-span-5 bg-white dark:bg-slate-800/90 border border-slate-200/60 dark:border-slate-700/50 rounded-3xl p-8 shadow-lg shadow-slate-200/30 flex flex-col relative overflow-hidden">
           <div className="flex justify-between items-center mb-8 pb-4 border-b border-slate-100 dark:border-slate-700/50 relative z-10">
             <div>
-              <h3 className="text-xl font-black text-slate-900 dark:text-white">Upcoming Pipeline</h3>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white">Upcoming Pipeline</h3>
               <p className="text-xs font-semibold text-slate-400 mt-1 uppercase tracking-wider">Next 4 Hours</p>
             </div>
           </div>
@@ -220,23 +220,23 @@ export default function AdminDashboardPage() {
                 <div className="flex flex-col p-4 rounded-2xl border transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300">
                   <div className="flex justify-between items-start">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm shadow-sm border bg-slate-50 text-slate-700 border-slate-200 group-hover:bg-slate-100 group-hover:text-emerald-700">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center font-semibold text-sm shadow-sm border bg-slate-50 text-slate-700 border-slate-200 group-hover:bg-slate-100 group-hover:text-emerald-700">
                         {patient.patientName.charAt(0)}
                       </div>
                       <div>
-                        <p className="font-extrabold text-sm text-slate-900 dark:text-slate-100">{patient.patientName}</p>
+                        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">{patient.patientName}</p>
                         <p className="text-xs font-semibold text-slate-500 mt-0.5 uppercase tracking-wider">{patient.type}</p>
                       </div>
                     </div>
                     <div className="text-right">
                       <div className={`flex flex-col`}>
-                        <span className="text-xs font-bold text-slate-500 group-hover:text-slate-800 transition-colors">{new Date(patient.time).toLocaleTimeString('en-IN', {
+                        <span className="text-xs font-semibold text-slate-500 group-hover:text-slate-800 transition-colors">{new Date(patient.time).toLocaleTimeString('en-IN', {
                           hour: 'numeric',
                           minute: '2-digit',
                           hour12: true
                         }).toUpperCase()}</span>
 
-                        <span className="text-xs font-bold text-slate-500 group-hover:text-slate-800 transition-colors">{new Date(patient.time).toLocaleDateString('en-IN', {
+                        <span className="text-xs font-semibold text-slate-500 group-hover:text-slate-800 transition-colors">{new Date(patient.time).toLocaleDateString('en-IN', {
                           day: 'numeric',
                           month: 'short',
                           year: 'numeric'

@@ -173,7 +173,7 @@ export default function DoctorAvailabilityPage() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
           <div className="relative">
             <div className="absolute -left-4 -top-4 w-20 h-20 bg-emerald-400/20 rounded-full blur-3xl pointer-events-none" />
-            <h1 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white flex items-center gap-3 relative z-10">
+            <h1 className="text-4xl font-semibold tracking-tight text-slate-900 dark:text-white flex items-center gap-3 relative z-10">
               Schedule & Availability
             </h1>
             <p className="text-base text-slate-500 dark:text-slate-400 mt-2 font-medium max-w-xl relative z-10">
@@ -193,7 +193,7 @@ export default function DoctorAvailabilityPage() {
                  <CalendarDays className="w-80 h-80" strokeWidth={3} />
                </div>
                
-               <h3 className="font-bold text-white text-xl flex items-center gap-3 tracking-tight mb-8 relative z-10">
+               <h3 className="font-semibold text-white text-xl flex items-center gap-3 tracking-tight mb-8 relative z-10">
                   <span className="p-2.5 bg-white/10 rounded-2xl backdrop-blur-md border border-white/10 shadow-inner">
                     <Plus className="h-5 w-5 text-emerald-100" />
                   </span>
@@ -202,7 +202,7 @@ export default function DoctorAvailabilityPage() {
 
                <form onSubmit={handleAddSlot} className="relative z-10 space-y-5">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-extrabold uppercase tracking-widest text-emerald-100/80">1. Select Date</label>
+                    <label className="text-xs font-semibold uppercase tracking-widest text-emerald-100/80">1. Select Date</label>
                     <Input 
                       type="date" 
                       required 
@@ -215,11 +215,11 @@ export default function DoctorAvailabilityPage() {
                   
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <label className="text-xs font-extrabold uppercase tracking-widest text-emerald-100/80">2. Time Selection</label>
+                      <label className="text-xs font-semibold uppercase tracking-widest text-emerald-100/80">2. Time Selection</label>
                       <button 
                         type="button"
                         onClick={() => setIsManual(!isManual)}
-                        className="text-[9px] font-black uppercase tracking-widest bg-white/10 hover:bg-white/20 text-emerald-100 px-3 py-1 rounded-full transition-all border border-white/10"
+                        className="text-[9px] font-semibold uppercase tracking-widest bg-white/10 hover:bg-white/20 text-emerald-100 px-3 py-1 rounded-full transition-all border border-white/10"
                       >
                         {isManual ? "Switch to Quick Select" : "Manual Entry"}
                       </button>
@@ -228,7 +228,7 @@ export default function DoctorAvailabilityPage() {
                     {isManual ? (
                       <div className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
                         <div className="space-y-1.5">
-                          <label className="text-[10px] font-bold text-emerald-200/60 uppercase">Start</label>
+                          <label className="text-[10px] font-semibold text-emerald-200/60 uppercase">Start</label>
                           <Input 
                             type="time" 
                             value={manualStart}
@@ -237,7 +237,7 @@ export default function DoctorAvailabilityPage() {
                           />
                         </div>
                         <div className="space-y-1.5">
-                          <label className="text-[10px] font-bold text-emerald-200/60 uppercase">End</label>
+                          <label className="text-[10px] font-semibold text-emerald-200/60 uppercase">End</label>
                           <Input 
                             type="time" 
                             value={manualEnd}
@@ -260,7 +260,7 @@ export default function DoctorAvailabilityPage() {
                               key={t}
                               type="button"
                               onClick={() => toggleTimeSelection(t)}
-                              className={`py-3 rounded-xl text-[10px] font-black transition-all border-2 ${isSelected ? "bg-white border-white text-emerald-700 shadow-xl scale-105 z-10" : "bg-black/10 border-white/5 text-emerald-100/60 hover:bg-black/20"}`}
+                              className={`py-3 rounded-xl text-[10px] font-semibold transition-all border-2 ${isSelected ? "bg-white border-white text-emerald-700 shadow-xl scale-105 z-10" : "bg-black/10 border-white/5 text-emerald-100/60 hover:bg-black/20"}`}
                             >
                               {displayTime}
                             </button>
@@ -273,7 +273,7 @@ export default function DoctorAvailabilityPage() {
                   <Button 
                     type="submit" 
                     disabled={isAdding || (isManual ? (!manualStart || !manualEnd) : selectedTimes.length === 0)}
-                    className="w-full h-12 mt-4 bg-white hover:bg-emerald-50 text-emerald-700 font-black tracking-widest uppercase rounded-2xl shadow-lg transition-all active:scale-95"
+                    className="w-full h-12 mt-4 bg-white hover:bg-emerald-50 text-emerald-700 font-semibold tracking-widest uppercase rounded-2xl shadow-lg transition-all active:scale-95"
                   >
                     {isAdding ? <Loader2 className="h-5 w-5 animate-spin" /> : isManual ? "Add Custom Slot" : selectedTimes.length > 0 ? `Confirm ${selectedTimes.length} Slots` : "Confirm Availability"}
                   </Button>
@@ -286,7 +286,7 @@ export default function DoctorAvailabilityPage() {
                    <AlertTriangle className="h-5 w-5" />
                  </div>
                  <div>
-                   <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">Important Note</h4>
+                   <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-1">Important Note</h4>
                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                      Slots marked as <strong className="text-slate-700 dark:text-slate-300">Booked</strong> have a patient appointment associated and cannot be deleted. Mark them as unavailable only if absolutely necessary.
                    </p>
@@ -299,11 +299,11 @@ export default function DoctorAvailabilityPage() {
           <div className="lg:col-span-8 bg-white dark:bg-slate-800/90 rounded-3xl border border-slate-200/60 dark:border-slate-700/50 p-8 flex flex-col shadow-lg shadow-slate-200/30 transition-all min-h-[500px]">
             <div className="flex justify-between items-start mb-8 pb-4 border-b border-slate-100 dark:border-slate-700/50">
               <div>
-                <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">My Schedule</h3>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white tracking-tight">My Schedule</h3>
                 <p className="text-xs font-semibold text-slate-400 mt-1 uppercase tracking-wider">Manage active slots</p>
               </div>
               <div className="flex items-center gap-2">
-                <span className="rounded-full bg-emerald-100 dark:bg-emerald-900/40 px-3 py-1 text-[10px] font-black text-emerald-700 dark:text-emerald-300 uppercase tracking-widest">
+                <span className="rounded-full bg-emerald-100 dark:bg-emerald-900/40 px-3 py-1 text-[10px] font-semibold text-emerald-700 dark:text-emerald-300 uppercase tracking-widest">
                   {slots.length} Active Slots
                 </span>
               </div>
@@ -312,12 +312,12 @@ export default function DoctorAvailabilityPage() {
             {loading ? (
               <div className="flex flex-col items-center justify-center flex-1 text-slate-400">
                 <Loader2 className="h-10 w-10 animate-spin mb-4 text-emerald-500" />
-                <p className="text-sm font-bold uppercase tracking-widest">Loading schedule...</p>
+                <p className="text-sm font-semibold uppercase tracking-widest">Loading schedule...</p>
               </div>
             ) : slots.length === 0 ? (
               <div className="flex flex-col items-center justify-center flex-1 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-700">
                 <CalendarDays className="h-16 w-16 mb-4 opacity-20 text-slate-500" />
-                <p className="text-sm font-black uppercase tracking-widest text-slate-500">No availability set</p>
+                <p className="text-sm font-semibold uppercase tracking-widest text-slate-500">No availability set</p>
                 <p className="text-xs mt-2 opacity-60 text-slate-500">Add slots using the form to open your calendar.</p>
               </div>
             ) : (
@@ -342,7 +342,7 @@ export default function DoctorAvailabilityPage() {
                     >
                       <div className="flex justify-between items-start mb-4">
                         <div className="flex items-center gap-3">
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm shadow-sm border transition-colors ${
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-semibold text-sm shadow-sm border transition-colors ${
                             slot.isBooked 
                               ? 'bg-amber-50 text-amber-600 border-amber-200 dark:bg-amber-900/30 dark:border-amber-800' 
                               : isUnavailable
@@ -352,27 +352,27 @@ export default function DoctorAvailabilityPage() {
                             <CalendarDays className="h-5 w-5" />
                           </div>
                           <div>
-                            <p className="font-black text-sm text-slate-900 dark:text-white uppercase tracking-wider">
+                            <p className="font-semibold text-sm text-slate-900 dark:text-white uppercase tracking-wider">
                               {slotDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })} — {slotDate.toLocaleDateString('en-IN', { year: 'numeric' })}
                             </p>
                             <div className="flex items-center gap-1.5 mt-1 text-slate-500">
                               <Clock className="h-3 w-3" />
-                              <span className="text-[10px] font-bold uppercase tracking-widest">
+                              <span className="text-[10px] font-semibold uppercase tracking-widest">
                                 {slot.startTime} to {slot.endTime}
                               </span>
                             </div>
                           </div>
                         </div>
                         {slot.isBooked ? (
-                          <span className="bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-md">
+                          <span className="bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 text-[9px] font-semibold uppercase tracking-widest px-2 py-1 rounded-md">
                             Booked
                           </span>
                         ) : isUnavailable ? (
-                          <span className="bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-400 text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-md">
+                          <span className="bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-400 text-[9px] font-semibold uppercase tracking-widest px-2 py-1 rounded-md">
                             Unavailable
                           </span>
                         ) : (
-                          <span className="bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-md">
+                          <span className="bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 text-[9px] font-semibold uppercase tracking-widest px-2 py-1 rounded-md">
                             Available
                           </span>
                         )}
@@ -406,7 +406,7 @@ export default function DoctorAvailabilityPage() {
                           variant="ghost" 
                           onClick={() => handleDelete(slot.id)}
                           disabled={slot.isBooked || deletingId === slot.id || isPast}
-                          className="h-8 px-3 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/30 rounded-lg transition-colors"
+                          className="h-8 px-3 text-[10px] font-semibold uppercase tracking-widest text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/30 rounded-lg transition-colors"
                         >
                           {deletingId === slot.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <><Trash2 className="h-3 w-3 mr-1.5" /> Delete</>}
                         </Button>
@@ -430,7 +430,7 @@ export default function DoctorAvailabilityPage() {
         >
           <DialogHeader className="px-8 py-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 flex flex-row items-start justify-between">
             <div>
-              <DialogTitle className="text-xl font-black text-slate-900 dark:text-white">Edit Slot</DialogTitle>
+              <DialogTitle className="text-xl font-semibold text-slate-900 dark:text-white">Edit Slot</DialogTitle>
               <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-widest">
                 Update date and time range
               </p>
@@ -444,7 +444,7 @@ export default function DoctorAvailabilityPage() {
           </DialogHeader>
           <div className="p-8 space-y-5">
             <div className="space-y-1.5">
-              <label className="text-xs font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400">Date</label>
+              <label className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">Date</label>
               <Input
                 type="date"
                 value={editState.date}
@@ -454,7 +454,7 @@ export default function DoctorAvailabilityPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="text-xs font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400">Start</label>
+                <label className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">Start</label>
                 <Input
                   type="time"
                   value={editState.startTime}
@@ -463,7 +463,7 @@ export default function DoctorAvailabilityPage() {
                 />
               </div>
               <div className="space-y-1.5">
-                <label className="text-xs font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400">End</label>
+                <label className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">End</label>
                 <Input
                   type="time"
                   value={editState.endTime}
@@ -476,7 +476,7 @@ export default function DoctorAvailabilityPage() {
             <Button
               onClick={handleSaveEdit}
               disabled={editState.saving || !editState.date || !editState.startTime || !editState.endTime}
-              className="w-full h-11 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black tracking-widest uppercase"
+              className="w-full h-11 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold tracking-widest uppercase"
             >
               {editState.saving ? <Loader2 className="h-4 w-4 animate-spin" /> : "Save Changes"}
             </Button>

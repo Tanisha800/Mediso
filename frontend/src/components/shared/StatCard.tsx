@@ -62,7 +62,7 @@ export function StatCard({
       <div className="flex items-start justify-between">
         <div>
           <p className="text-sm font-medium text-slate-500 dark:text-slate-400 transition-colors group-hover:text-slate-700 dark:group-hover:text-slate-300">{title}</p>
-          <p className="mt-1 text-3xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">
+          <p className="mt-1 text-3xl font-semibold text-slate-800 dark:text-slate-100 tracking-tight">
             {value}
           </p>
           {description && (

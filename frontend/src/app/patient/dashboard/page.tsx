@@ -51,7 +51,7 @@ export default function PatientDashboardPage() {
       <AuthGuard allowedRoles={["patient"]}>
         <div className="flex flex-col items-center justify-center min-h-[60vh]">
           <Loader2 className="h-10 w-10 animate-spin text-blue-500 mb-4" />
-          <p className="text-sm font-bold uppercase tracking-widest text-slate-400">Loading dashboard...</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">Loading dashboard...</p>
         </div>
       </AuthGuard>
     );
@@ -61,7 +61,7 @@ export default function PatientDashboardPage() {
     return (
       <AuthGuard allowedRoles={["patient"]}>
         <div className="flex flex-col items-center justify-center min-h-[60vh]">
-          <p className="text-sm font-bold uppercase tracking-widest text-rose-400">
+          <p className="text-sm font-semibold uppercase tracking-widest text-rose-400">
             {error ?? "Something went wrong."}
           </p>
         </div>
@@ -75,7 +75,7 @@ export default function PatientDashboardPage() {
         {/* 1. Page Header */}
         <div className="relative">
           <div className="absolute -left-4 -top-4 w-16 h-16 bg-blue-400/10 rounded-full blur-2xl pointer-events-none" />
-          <h1 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white relative z-10">
+          <h1 className="text-4xl font-semibold tracking-tight text-slate-900 dark:text-white relative z-10">
             Patient Dashboard
           </h1>
           <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-widest relative z-10">
@@ -122,13 +122,13 @@ export default function PatientDashboardPage() {
             <div className="bg-white dark:bg-slate-900/50 rounded-3xl p-6 md:p-8 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">
               <div className="flex items-center justify-between mb-6 relative z-10">
                 <div>
-                  <h2 className="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
+                  <h2 className="text-xl font-semibold text-slate-900 dark:text-white uppercase tracking-tight">
                     Upcoming Appointments
                   </h2>
                   <p className="text-xs text-slate-500 uppercase tracking-widest mt-1">Your next scheduled visits</p>
                 </div>
                 <Link href="/patient/appointments">
-                  <Button variant="ghost" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 font-bold text-xs uppercase tracking-widest">
+                  <Button variant="ghost" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 font-semibold text-xs uppercase tracking-widest">
                     View All <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
@@ -138,7 +138,7 @@ export default function PatientDashboardPage() {
                 {upcoming.length === 0 ? (
                   <div className="flex flex-col items-center justify-center py-16 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl">
                     <CalendarDays className="h-12 w-12 text-slate-300 dark:text-slate-700 mb-3" />
-                    <p className="text-slate-500 font-bold uppercase tracking-widest">No upcoming appointments</p>
+                    <p className="text-slate-500 font-semibold uppercase tracking-widest">No upcoming appointments</p>
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 gap-4">
@@ -162,22 +162,22 @@ export default function PatientDashboardPage() {
           <div className="space-y-8">
             {/* 4. Quick Actions */}
             <div className="bg-white dark:bg-slate-900/50 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">
-              <h2 className="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight mb-6">
+              <h2 className="text-xl font-semibold text-slate-900 dark:text-white uppercase tracking-tight mb-6">
                 Quick Actions
               </h2>
               <div className="space-y-3 relative z-10">
                 <Link href="/patient/doctors" className="block">
-                  <Button className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md shadow-blue-600/20 justify-start px-6">
+                  <Button className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md shadow-blue-600/20 justify-start px-6">
                     <Plus className="mr-3 h-5 w-5" /> Book Appointment
                   </Button>
                 </Link>
                 <Link href="/patient/doctors" className="block">
-                  <Button variant="outline" className="w-full h-12 rounded-xl border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 font-bold justify-start px-6 text-slate-700 dark:text-slate-300">
+                  <Button variant="outline" className="w-full h-12 rounded-xl border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold justify-start px-6 text-slate-700 dark:text-slate-300">
                     <Stethoscope className="mr-3 h-5 w-5 text-emerald-500" /> View Doctors
                   </Button>
                 </Link>
                 <Link href="/patient/history" className="block">
-                  <Button variant="outline" className="w-full h-12 rounded-xl border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 font-bold justify-start px-6 text-slate-700 dark:text-slate-300">
+                  <Button variant="outline" className="w-full h-12 rounded-xl border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold justify-start px-6 text-slate-700 dark:text-slate-300">
                     <FileText className="mr-3 h-5 w-5 text-amber-500" /> Medical History
                   </Button>
                 </Link>

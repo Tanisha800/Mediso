@@ -64,7 +64,7 @@ export function AppointmentCard({
         {/* Patient info */}
         <div className="flex items-center gap-3 min-w-0">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-50 to-teal-100 dark:from-emerald-900/50 dark:to-teal-900/50 border border-white dark:border-slate-700 shadow-sm">
-            <span className="font-bold text-sm tracking-widest text-teal-700 dark:text-teal-300">
+            <span className="font-semibold text-sm tracking-widest text-teal-700 dark:text-teal-300">
               {appointment.patientName.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()}
             </span>
           </div>
