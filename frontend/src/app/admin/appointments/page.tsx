@@ -43,20 +43,26 @@ export default function AdminAppointmentsPage() {
 
       const processed = data.map((apt: any) => {
         const aptDate = new Date(apt.time)
-        const aptDateStr = aptDate.toISOString().split('T')[0]
+        const isValidDate = !isNaN(aptDate.getTime())
+        
+        const aptDateStr = isValidDate ? aptDate.toISOString().split('T')[0] : ""
 
         let dateGroup = "Upcoming"
-        if (aptDateStr === today) dateGroup = "Today"
-        else if (aptDateStr === tomorrowStr) dateGroup = "Tomorrow"
+        if (isValidDate) {
+          if (aptDateStr === today) dateGroup = "Today"
+          else if (aptDateStr === tomorrowStr) dateGroup = "Tomorrow"
+        } else {
+          dateGroup = "Upcoming" // Default to Upcoming for invalid dates so they show up
+        }
 
         return {
           ...apt,
           dateGroup,
-          time: aptDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-          dateStr: aptDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }),
+          time: isValidDate ? aptDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : apt.time,
+          dateStr: isValidDate ? aptDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) : "Date Unknown",
           doctorName: apt.doctor?.name || "Unassigned",
           doctorWorkload: "Real-time sync",
-          isLive: aptDateStr === today && Math.abs(aptDate.getTime() - now.getTime()) < 3600000
+          isLive: isValidDate && aptDateStr === today && Math.abs(aptDate.getTime() - now.getTime()) < 3600000
         }
       })
 
