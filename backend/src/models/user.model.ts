@@ -1,45 +1,71 @@
 import { prisma } from "../lib/prisma";
 import bcrypt from "bcryptjs";
+
 export const seedDefaultUsers = async () => {
   const SALT_ROUNDS = 10;
 
+  // 1. ADMIN
   await prisma.user.upsert({
-    where: { email: "admin@test.com" },
+    where: { email: "john@gmail.com" },
     update: {},
     create: {
-      name: "Admin",
-      email: "admin@test.com",
-      passwordHash: await bcrypt.hash("123456", SALT_ROUNDS),
+      name: "John Admin",
+      email: "john@gmail.com",
+      passwordHash: await bcrypt.hash("87654321", SALT_ROUNDS),
       role: "admin",
     },
   });
 
+  // 2. DOCTOR
   await prisma.user.upsert({
     where: { email: "doctor@test.com" },
     update: {},
     create: {
-      name: "Doctor",
+      name: "Dr. Smith",
       email: "doctor@test.com",
       passwordHash: await bcrypt.hash("123456", SALT_ROUNDS),
       role: "doctor",
     },
   });
 
-  // Ensure the seeded doctor login has a matching Doctor profile (doctor endpoints resolve by email).
+  // Ensure the seeded doctor login has a matching Doctor profile
   await prisma.doctor.upsert({
     where: { email: "doctor@test.com" },
-    update: {
-      status: "Active",
-    },
+    update: { status: "Active" },
     create: {
-      name: "Dr. Default Doctor",
+      name: "Dr. Smith",
       specialization: "General",
       email: "doctor@test.com",
       phone: "+1 (000) 000-0000",
-      experience: "0 years",
+      experience: "10 years",
       status: "Active",
     },
   });
+
+  // 3. PATIENT
+  await prisma.user.upsert({
+    where: { email: "patient@test.com" },
+    update: {},
+    create: {
+      name: "Jane Doe",
+      email: "patient@test.com",
+      passwordHash: await bcrypt.hash("123456", SALT_ROUNDS),
+      role: "patient",
+    },
+  });
+
+  // Ensure patient profile exists
+  await prisma.patient.upsert({
+    where: { email: "patient@test.com" },
+    update: {},
+    create: {
+      name: "Jane Doe",
+      email: "patient@test.com",
+      gender: "Female",
+      age: 34,
+      phone: "+1 (000) 111-2222",
+    }
+  })
 
   console.log("Default users seeded");
 };

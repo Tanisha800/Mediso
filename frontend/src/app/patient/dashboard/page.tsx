@@ -71,14 +71,14 @@ export default function PatientDashboardPage() {
 
   return (
     <AuthGuard allowedRoles={["patient"]}>
-      <div className="space-y-8 animate-in fade-in duration-500 max-w-[1400px] mx-auto pb-12">
+      <div className="space-y-10 animate-in fade-in duration-500 max-w-full mx-auto pb-20 pt-8 px-4 md:px-6">
         {/* 1. Page Header */}
         <div className="relative">
-          <div className="absolute -left-4 -top-4 w-16 h-16 bg-blue-400/10 rounded-full blur-2xl pointer-events-none" />
-          <h1 className="text-4xl font-semibold tracking-tight text-slate-900 dark:text-white relative z-10">
+          <div className="absolute -left-6 -top-6 w-20 h-20 bg-[#009866]/10 rounded-full blur-3xl pointer-events-none" />
+          <h1 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white relative z-10">
             Patient Dashboard
           </h1>
-          <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-widest relative z-10">
+          <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mt-2 uppercase tracking-[0.2em] relative z-10">
             Welcome back, manage your health easily
           </p>
         </div>
@@ -89,28 +89,28 @@ export default function PatientDashboardPage() {
             title="Upcoming Appointments"
             value={stats.upcomingCount}
             icon={CalendarDays}
-            colorClass="bg-blue-100 dark:bg-blue-900/40"
+            colorClass="bg-blue-50 dark:bg-blue-900/20"
             iconColorClass="text-blue-600 dark:text-blue-400"
           />
           <SummaryCard
             title="Total Appointments"
             value={stats.totalAppointments}
             icon={CalendarCheck}
-            colorClass="bg-emerald-100 dark:bg-emerald-900/40"
-            iconColorClass="text-emerald-600 dark:text-emerald-400"
+            colorClass="bg-[#D1FAE4] dark:bg-emerald-900/40"
+            iconColorClass="text-[#009866] dark:text-emerald-400"
           />
           <SummaryCard
             title="Prescriptions"
             value={stats.totalPrescriptions}
             icon={FileText}
-            colorClass="bg-amber-100 dark:bg-amber-900/40"
+            colorClass="bg-amber-50 dark:bg-amber-900/20"
             iconColorClass="text-amber-600 dark:text-amber-400"
           />
           <SummaryCard
             title="Notifications"
             value={stats.unreadNotifications}
             icon={Bell}
-            colorClass="bg-rose-100 dark:bg-rose-900/40"
+            colorClass="bg-rose-50 dark:bg-rose-900/20"
             iconColorClass="text-rose-600 dark:text-rose-400"
           />
         </div>
@@ -119,16 +119,16 @@ export default function PatientDashboardPage() {
           {/* Main Left Column */}
           <div className="lg:col-span-2 space-y-8">
             {/* 3. Upcoming Appointments Section */}
-            <div className="bg-white dark:bg-slate-900/50 rounded-3xl p-6 md:p-8 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">
-              <div className="flex items-center justify-between mb-6 relative z-10">
+            <div className="bg-white dark:bg-slate-900/50 rounded-[32px] p-8 md:p-10 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">
+              <div className="flex items-center justify-between mb-8 relative z-10">
                 <div>
-                  <h2 className="text-xl font-semibold text-slate-900 dark:text-white uppercase tracking-tight">
+                  <h2 className="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
                     Upcoming Appointments
                   </h2>
-                  <p className="text-xs text-slate-500 uppercase tracking-widest mt-1">Your next scheduled visits</p>
+                  <p className="text-[10px] text-slate-400 uppercase tracking-widest mt-2 font-black">Your next scheduled visits</p>
                 </div>
                 <Link href="/patient/appointments">
-                  <Button variant="ghost" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 font-semibold text-xs uppercase tracking-widest">
+                  <Button variant="ghost" className="text-[#009866] hover:text-[#007a52] hover:bg-[#D1FAE4] font-black text-[10px] uppercase tracking-widest rounded-full px-6">
                     View All <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
@@ -136,12 +136,12 @@ export default function PatientDashboardPage() {
 
               <div className="relative z-10">
                 {upcoming.length === 0 ? (
-                  <div className="flex flex-col items-center justify-center py-16 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl">
-                    <CalendarDays className="h-12 w-12 text-slate-300 dark:text-slate-700 mb-3" />
-                    <p className="text-slate-500 font-semibold uppercase tracking-widest">No upcoming appointments</p>
+                  <div className="flex flex-col items-center justify-center py-20 border-2 border-dashed border-slate-100 dark:border-slate-800 rounded-3xl">
+                    <CalendarDays className="h-16 w-16 text-slate-200 dark:text-slate-800 mb-4" />
+                    <p className="text-slate-400 font-black uppercase tracking-widest text-xs">No upcoming appointments</p>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 gap-4">
+                  <div className="grid grid-cols-1 gap-6">
                     {upcoming.slice(0, 3).map((appt) => (
                       <AppointmentCard
                         key={appt.id}
@@ -161,31 +161,28 @@ export default function PatientDashboardPage() {
           {/* Right Sidebar Column */}
           <div className="space-y-8">
             {/* 4. Quick Actions */}
-            <div className="bg-white dark:bg-slate-900/50 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">
-              <h2 className="text-xl font-semibold text-slate-900 dark:text-white uppercase tracking-tight mb-6">
+            <div className="bg-white dark:bg-slate-900/50 rounded-[32px] p-8 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden">
+              <h2 className="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight mb-8">
                 Quick Actions
               </h2>
-              <div className="space-y-3 relative z-10">
+              <div className="space-y-4 relative z-10">
                 <Link href="/patient/doctors" className="block">
-                  <Button className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md shadow-blue-600/20 justify-start px-6">
-                    <Plus className="mr-3 h-5 w-5" /> Book Appointment
+                  <Button className="w-full h-14 rounded-2xl bg-[#009866] hover:bg-[#007a52] text-white font-black uppercase tracking-widest text-[10px] shadow-xl shadow-[#009866]/20 hover:shadow-[#009866]/40 transition-all hover:-translate-y-0.5 justify-start px-8">
+                    <Plus className="mr-4 h-5 w-5" /> Book Appointment
                   </Button>
                 </Link>
                 <Link href="/patient/doctors" className="block">
-                  <Button variant="outline" className="w-full h-12 rounded-xl border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold justify-start px-6 text-slate-700 dark:text-slate-300">
-                    <Stethoscope className="mr-3 h-5 w-5 text-emerald-500" /> View Doctors
+                  <Button variant="outline" className="w-full h-14 rounded-2xl border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 font-black uppercase tracking-widest text-[10px] justify-start px-8 text-slate-600 dark:text-slate-300 transition-all">
+                    <Stethoscope className="mr-4 h-5 w-5 text-[#009866]" /> View Doctors
                   </Button>
                 </Link>
                 <Link href="/patient/history" className="block">
-                  <Button variant="outline" className="w-full h-12 rounded-xl border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold justify-start px-6 text-slate-700 dark:text-slate-300">
-                    <FileText className="mr-3 h-5 w-5 text-amber-500" /> Medical History
+                  <Button variant="outline" className="w-full h-14 rounded-2xl border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 font-black uppercase tracking-widest text-[10px] justify-start px-8 text-slate-600 dark:text-slate-300 transition-all">
+                    <FileText className="mr-4 h-5 w-5 text-amber-500" /> Medical History
                   </Button>
                 </Link>
               </div>
             </div>
-
-
-
           </div>
         </div>
       </div>

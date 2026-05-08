@@ -75,15 +75,15 @@ export default function DoctorsPage() {
   });
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500 max-w-[1400px] mx-auto pb-12">
+    <div className="space-y-10 animate-in fade-in duration-500 max-w-full mx-auto pb-20 pt-8 px-4 md:px-6">
       {/* 1. Header Section */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-4">
         <div className="relative">
-          <div className="absolute -left-4 -top-4 w-16 h-16 bg-emerald-400/10 rounded-full blur-2xl pointer-events-none" />
-          <h1 className="text-4xl font-semibold tracking-tight text-slate-900 dark:text-white relative z-10">
+          <div className="absolute -left-6 -top-6 w-20 h-20 bg-[#009866]/10 rounded-full blur-3xl pointer-events-none" />
+          <h1 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white relative z-10">
             Find Doctors
           </h1>
-          <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-widest relative z-10">
+          <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mt-2 uppercase tracking-[0.2em] relative z-10">
             Choose a doctor and book appointment
           </p>
         </div>
@@ -91,10 +91,10 @@ export default function DoctorsPage() {
         <div className="relative w-full md:w-80">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
           <Input
-            placeholder="Search doctor by name or specialization..."
+            placeholder="Search doctor or specialization..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-10 h-11 rounded-2xl border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm focus:ring-emerald-500/20"
+            className="pl-10 h-12 rounded-2xl border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm focus:ring-[#009866]/20"
           />
         </div>
       </div>
@@ -105,7 +105,7 @@ export default function DoctorsPage() {
           <button
             key={spec}
             onClick={() => setActiveFilter(spec)}
-            className={`whitespace-nowrap px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-300 border ${
+            className={`whitespace-nowrap px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.15em] transition-all duration-300 border ${
               activeFilter === spec
                 ? "bg-slate-900 text-white border-slate-900 shadow-lg shadow-slate-900/20 dark:bg-white dark:text-slate-900 dark:border-white"
                 : "bg-white text-slate-500 border-slate-200 hover:border-slate-300 dark:bg-slate-900 dark:text-slate-400 dark:border-slate-800"
@@ -120,8 +120,8 @@ export default function DoctorsPage() {
       <div className="pt-2">
         {loading ? (
           <div className="flex flex-col items-center justify-center py-24 text-slate-400">
-            <Loader2 className="h-10 w-10 animate-spin mb-4 text-emerald-500" />
-            <p className="text-sm font-semibold uppercase tracking-widest">Loading doctors...</p>
+            <Loader2 className="h-10 w-10 animate-spin mb-4 text-[#009866]" />
+            <p className="text-[10px] font-black uppercase tracking-widest">Loading specialists...</p>
           </div>
         ) : filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
@@ -129,7 +129,7 @@ export default function DoctorsPage() {
             <p className="text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-widest">No doctors available</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {filtered.map((doctor) => (
               <DoctorCard key={doctor.id} doctor={doctor} onBook={handleBookClick} />
             ))}

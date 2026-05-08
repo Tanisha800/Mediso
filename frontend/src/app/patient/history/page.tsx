@@ -49,7 +49,7 @@ export default function MedicalHistoryPage() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [activeFilter, setActiveFilter] = useState<FilterType>("All");
-  
+
   const [selectedRecord, setSelectedRecord] = useState<MedicalRecord | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -79,15 +79,15 @@ export default function MedicalHistoryPage() {
 
   const filtered = useMemo(() => {
     const now = new Date().getTime();
-    
+
     return records.filter((r) => {
       // 1. Must be completed
       if (r.status.toLowerCase() !== "completed") return false;
 
       // 2. Search match
-      const searchMatch = r.doctorName.toLowerCase().includes(search.toLowerCase()) || 
-                          r.date.includes(search);
-                          
+      const searchMatch = r.doctorName.toLowerCase().includes(search.toLowerCase()) ||
+        r.date.includes(search);
+
       if (!searchMatch) return false;
 
       // 3. Date filter match
@@ -132,11 +132,10 @@ export default function MedicalHistoryPage() {
           <button
             key={filter}
             onClick={() => setActiveFilter(filter)}
-            className={`whitespace-nowrap px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-300 border ${
-              activeFilter === filter
+            className={`whitespace-nowrap px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-300 border ${activeFilter === filter
                 ? "bg-slate-900 text-white border-slate-900 shadow-lg shadow-slate-900/20 dark:bg-white dark:text-slate-900 dark:border-white"
                 : "bg-white text-slate-500 border-slate-200 hover:border-slate-300 dark:bg-slate-900 dark:text-slate-400 dark:border-slate-800"
-            }`}
+              }`}
           >
             {filter}
           </button>

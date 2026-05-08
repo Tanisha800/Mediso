@@ -110,11 +110,11 @@ export default function AppointmentsPage() {
       {/* 1. Header Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="relative">
-          <div className="absolute -left-4 -top-4 w-16 h-16 bg-blue-400/10 rounded-full blur-2xl pointer-events-none" />
-          <h1 className="text-4xl font-semibold tracking-tight text-slate-900 dark:text-white relative z-10">
+          <div className="absolute -left-6 -top-6 w-20 h-20 bg-[#009866]/10 rounded-full blur-3xl pointer-events-none" />
+          <h1 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white relative z-10">
             My Appointments
           </h1>
-          <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-widest relative z-10">
+          <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mt-2 uppercase tracking-[0.2em] relative z-10">
             View and manage your bookings
           </p>
         </div>
@@ -122,7 +122,7 @@ export default function AppointmentsPage() {
         <div className="flex items-center gap-3">
           <Link href="/patient/doctors">
             <Button
-              className="h-11 px-6 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-lg shadow-blue-600/20 transition-all active:scale-95 flex items-center gap-2"
+              className="h-12 px-8 rounded-2xl bg-[#009866] hover:bg-[#007a52] text-white font-black uppercase tracking-widest text-[10px] shadow-xl shadow-[#009866]/20 hover:shadow-[#009866]/40 transition-all hover:-translate-y-0.5 active:scale-95 flex items-center gap-2"
             >
               <Plus className="h-4 w-4" />
               Book Appointment
@@ -141,7 +141,7 @@ export default function AppointmentsPage() {
           <button
             key={f.value}
             onClick={() => setActiveFilter(f.value as "all" | "upcoming" | "completed")}
-            className={`whitespace-nowrap px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-300 border ${
+            className={`whitespace-nowrap px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.15em] transition-all duration-300 border ${
               activeFilter === f.value
                 ? "bg-slate-900 text-white border-slate-900 shadow-lg shadow-slate-900/20 dark:bg-white dark:text-slate-900 dark:border-white"
                 : "bg-white text-slate-500 border-slate-200 hover:border-slate-300 dark:bg-slate-900 dark:text-slate-400 dark:border-slate-800"
@@ -153,16 +153,16 @@ export default function AppointmentsPage() {
       </div>
 
       {/* Count */}
-      <p className="text-xs text-slate-400 dark:text-slate-500">
-        Showing <strong className="text-slate-600 dark:text-slate-300">{filtered.length}</strong> appointments
+      <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">
+        Showing <strong className="text-slate-900 dark:text-slate-100">{filtered.length}</strong> appointments
       </p>
 
       {/* 3. Appointment List */}
       <div className="space-y-4 pt-2">
         {loading ? (
           <div className="flex flex-col items-center justify-center py-24 text-slate-400">
-            <Loader2 className="h-10 w-10 animate-spin mb-4 text-blue-500" />
-            <p className="text-sm font-semibold uppercase tracking-widest">Loading...</p>
+            <Loader2 className="h-10 w-10 animate-spin mb-4 text-[#009866]" />
+            <p className="text-[10px] font-black uppercase tracking-widest">Loading records...</p>
           </div>
         ) : filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">

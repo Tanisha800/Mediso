@@ -15,25 +15,25 @@ export function HistoryCard({ record, onViewDetails }: HistoryCardProps) {
   
   return (
     <div className="group bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 hover:border-emerald-400/30 backdrop-blur-sm relative overflow-hidden flex flex-col h-full">
-      <div className="flex items-start justify-between mb-4">
-        <div className="flex items-center gap-3">
+      <div className="flex items-start justify-between gap-4 mb-6">
+        <div className="flex items-center gap-3 min-w-0">
           <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center font-semibold text-lg text-slate-400 group-hover:bg-emerald-50 group-hover:text-emerald-500 group-hover:border-emerald-100 transition-colors shrink-0">
             {record.doctorName.charAt(0)}
           </div>
-          <div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white truncate tracking-tight uppercase">
+          <div className="min-w-0">
+            <h3 className="text-base font-black text-slate-900 dark:text-white truncate tracking-tight uppercase leading-tight">
               {record.doctorName}
             </h3>
-            <div className="flex items-center gap-1.5 text-slate-400 dark:text-slate-500 mt-0.5">
+            <div className="flex items-center gap-1.5 text-slate-400 dark:text-slate-500 mt-1">
               <CalendarDays className="h-3.5 w-3.5" />
-              <span className="text-xs font-semibold uppercase tracking-wider">
+              <span className="text-[10px] font-black uppercase tracking-widest">
                 {dateObj.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
               </span>
             </div>
           </div>
         </div>
-        <Badge variant="outline" className="border-0 px-3 py-1 rounded-full font-semibold text-[10px] uppercase tracking-widest bg-emerald-100/50 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-400">
-          <CheckCircle2 className="h-3 w-3 mr-1" />
+        <Badge variant="outline" className="shrink-0 border-0 px-3 py-1.5 rounded-full font-black text-[9px] uppercase tracking-[0.15em] bg-emerald-100/60 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 flex items-center whitespace-nowrap shadow-sm shadow-emerald-500/5">
+          <CheckCircle2 className="h-3 w-3 mr-1.5" />
           Completed
         </Badge>
       </div>
